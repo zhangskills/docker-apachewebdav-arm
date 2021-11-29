@@ -1,4 +1,4 @@
-FROM arm32v7/httpd:2.4
+FROM arm32v7/httpd:2.4-alpine
 
 # These variables are inherited from the httpd:alpine image:
 # ENV HTTPD_PREFIX /usr/local/apache2
