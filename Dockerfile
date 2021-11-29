@@ -1,4 +1,4 @@
-FROM arm32v7/httpd:2.4-alpine
+FROM arm32v7/httpd:2.4
 
 # These variables are inherited from the httpd:alpine image:
 # ENV HTTPD_PREFIX /usr/local/apache2
@@ -41,9 +41,7 @@ RUN set -ex; \
     mkdir -p "conf/conf-enabled"; \
     mkdir -p "conf/sites-enabled"; \
     ln -s ../conf-available/dav.conf "conf/conf-enabled"; \
-    ln -s ../sites-available/default.conf "conf/sites-enabled"; \
-    # Install openssl if we need to generate a self-signed certificate.
-    apk add --no-cache openssl
+    ln -s ../sites-available/default.conf "conf/sites-enabled";
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN  chmod 755 /usr/local/bin/docker-entrypoint.sh
